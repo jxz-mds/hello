@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main()
+{
+    int d1, d2, d3, d4, d5, count = 0, result[10], i, iValue;
+    scanf("%d %d %d %d", &d1, &d2, &d4, &d5);
+    for (i = 0; i < 10; i++)
+    {
+        iValue = 0;
+        iValue = d5 * 10000 + d4 * 1000 + i * 100 + d2 * 10 + d1;
+        if (iValue % 57 == 0 && iValue % 67 == 0)
+        {
+            result[count] = iValue;
+            count++;
+        }
+    }
+    printf("%d\n", count);
+    for (i = 0; i < count; i++)
+        printf("%d\t", result[i]);
+    return 0;
+}
