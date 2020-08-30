@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdbool.h>
+bool book[10] = {0}; //鏍囪鏄惁宸茬粡鍑虹幇杩?
+int fact[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
+int cator(int *a, int n)
+{
+    int x = 0; 
+    for (int i = 0; i < n; i++)
+    {
+        int smaller = 0; 
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[i] > a[j])
+                smaller++;
+        }
+        printf("%d",smaller * fact[n - i - 1]);
+        x += smaller * fact[n - i - 1];
+    }
+    return x;
+}
+void cator_n(int n, int N)
+{
+    int mid, i;
+    for (i = n; i >= 1; i--)
+    {
+        mid = N / fact[i - 1] + 1; 
+        for (int i = 1; i <= mid; i++)
+            if (book[i])
+                mid++;
+
+        book[mid] = true;
+        printf("%d", mid);
+        N %= fact[i - 1];
+    }
+}
+int main()
+{
+    int a[5] = {5, 2, 4, 3, 1};
+    printf("%d\n", cator(a, 5));
+    cator_n(5, 61);
+}
