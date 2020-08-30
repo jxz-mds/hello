@@ -1,0 +1,16 @@
+#include <stdio.h>
+#define MAX_NUM 100
+int IsPrime[MAX_NUM + 1];
+int main()
+{
+    for (int i = 2; i <= MAX_NUM; i++) 
+        IsPrime[i] = 1;
+    for (int i = 2; i <= MAX_NUM; i++) 
+        if (IsPrime[i])                
+            for (int j = 2 * i; j <= MAX_NUM; j += i)
+                IsPrime[j] = 0;
+    for (int i = 2; i <= MAX_NUM; i++)
+        if (IsPrime[i])
+            printf("%d\t",i);
+    return 0;
+}
