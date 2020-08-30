@@ -1,0 +1,15 @@
+#include <stdio.h>
+int FindDivisor(int m, int n)
+{
+    if (m % n == 0)
+        return n;
+    else
+        return FindDivisor(n, m % n);
+}
+int main()
+{
+    int m, n;
+    printf("璇疯緭鍏?m n:\t");
+    scanf("%d %d", &m, &n);
+    printf("鏈€澶у叕绾︽暟涓?%d", FindDivisor(m, n));
+}
