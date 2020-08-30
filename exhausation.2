@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main(void)
+{
+    int N, M, n1, n2, n3, iCount = 0;
+    scanf("%d%d", &N, &M);
+    iCount = 0;
+    for (n1 = 0; n1 <= M / 5; n1++)
+        for (n2 = 0; n2 <= M / 3; n2++)
+        { //
+            n3 = N - n1 - n2;
+            if (5 * n1 + 3 * n2 + n3 / 3.0 == M) 
+                iCount++;
+        }
+    printf("%d\r\n", iCount);
+    return 0;
+}
